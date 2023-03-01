@@ -18,6 +18,7 @@ function GameObject:init(def, x, y)
 
     -- whether it acts as an obstacle or not
     self.solid = def.solid
+    self.consumable = def.consumable or false
 
     self.defaultState = def.defaultState
     self.state = self.defaultState
@@ -31,6 +32,9 @@ function GameObject:init(def, x, y)
 
     -- default empty collision callback
     self.onCollide = function() end
+
+    -- default empty consume callback
+    self.onConsume = function() end
 end
 
 function GameObject:update(dt)

@@ -38,6 +38,9 @@ function Entity:init(def)
     self.flashTimer = 0
 
     self.dead = false
+
+    -- item drop flag
+    self.drop = def.drop or false
 end
 
 function Entity:createAnimations(animations)
