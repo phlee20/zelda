@@ -52,3 +52,12 @@ TILE_TOP_WALLS = {58, 59, 60}
 TILE_BOTTOM_WALLS = {79, 80, 81}
 TILE_LEFT_WALLS = {77, 96, 115}
 TILE_RIGHT_WALLS = {78, 97, 116}
+
+--
+-- pot IDs
+--
+POTS = {
+    14, 15, 16,
+    33, 34, 35,
+    52, 53, 54
+}

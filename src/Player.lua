@@ -20,7 +20,14 @@ function Player:collides(target)
     local selfY, selfHeight = self.y + self.height / 2, self.height - self.height / 2
     
     return not (self.x + self.width < target.x or self.x > target.x + target.width or
-                selfY + selfHeight < target.y or selfY > target.y + target.height)
+        selfY + selfHeight < target.y or selfY > target.y + target.height)
+end
+
+function Player:nextToObject(target)
+    local selfY, selfHeight = self.y + self.height / 2, self.height - self.height / 2
+    
+    return not (self.x + self.width < target.x - 1 or self.x > target.x + target.width + 1 or
+        selfY + selfHeight < target.y - 1 or selfY > target.y + target.height + 1)
 end
 
 function Player:render()

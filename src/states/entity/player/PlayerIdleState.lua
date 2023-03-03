@@ -24,4 +24,13 @@ function PlayerIdleState:update(dt)
     if love.keyboard.wasPressed('space') then
         self.entity:changeState('swing-sword')
     end
+
+    -- change to lift pot state if keypressed and standing next to object
+    if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
+        for k, object in pairs(self.dungeon.currentRoom.objects) do
+            if self.entity:nextToObject(object) then
+                self.entity:changeState('lift-pot')
+            end
+        end
+    end
 end
