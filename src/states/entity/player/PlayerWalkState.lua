@@ -127,11 +127,6 @@ function PlayerWalkState:update(dt)
                 else
                     self.entity.y = self.entity.y - PLAYER_WALK_SPEED * dt
                 end
-
-                -- change to lift pot state if keypressed
-                if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
-                    self.entity:changeState('lift-pot')
-                end
             end
         end
     end

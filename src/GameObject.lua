@@ -30,6 +30,10 @@ function GameObject:init(def, x, y)
     self.width = def.width
     self.height = def.height
 
+    -- velocity
+    self.dx = 0
+    self.dy = 0
+
     -- default empty collision callback
     self.onCollide = function() end
 
@@ -39,6 +43,39 @@ end
 
 function GameObject:update(dt)
 
+end
+
+function GameObject:trackPlayer(target)
+    self.x = target.x
+    self.y = target.y - target.offsetY * 2
+end
+
+function GameObject:throw(target)
+    if target.direction == 'left' then
+        self.dx = -65
+        self.dy = 0
+    elseif target.direction == 'right' then
+        self.dx = 65
+        self.dy = 0
+    elseif target.direction == 'up' then
+        self.dx = 0
+        self.dy = -65
+    else
+        self.dx = 0
+        self.dy = 65
+    end
+    
+    local newX = self.x + self.dx
+    local newY = self.y + self.dy
+
+    Timer.tween(0.2, {
+        [self] = {x = newX, y = newY}
+    })
+end
+
+function GameObject:collides(target)
+    return not (self.x + self.width < target.x or self.x > target.x + target.width or
+                self.y + self.height < target.y or self.y > target.y + target.height)
 end
 
 function GameObject:render(adjacentOffsetX, adjacentOffsetY)

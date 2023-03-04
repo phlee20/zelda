@@ -6,10 +6,10 @@
     cogden@cs50.harvard.edu
 ]]
 
-Projectile = Class{}
+Projectile = Class{__includes = GameObject}
 
-function Projectile:init()
-
+function Projectile:init(def)
+    GameObject.init(self, def)
 end
 
 function Projectile:update(dt)

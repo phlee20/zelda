@@ -50,6 +50,12 @@ GAME_OBJECT_DEFS = {
         states = {
             ['default'] = {
                 frame = POTS[1]
+            },
+            ['lifted'] = {
+                frame = POTS[2]
+            },
+            ['broken'] = {
+                frame = POTS[7]
             }
         }
     }
